@@ -6,14 +6,20 @@
         "use": "@vercel/node"
       },
       {
-        "src": "public/**",
+        "src": "public/**/*",
         "use": "@vercel/static"
       }
     ],
     "routes": [
       {
         "src": "/ask",
-        "dest": "server.js"
+        "methods": ["POST"],
+        "dest": "/server.js"
+      },
+      {
+        "src": "/(.*)",
+        "dest": "/public/index.html"
       }
     ]
   }
+  
